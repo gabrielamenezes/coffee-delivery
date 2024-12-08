@@ -10,7 +10,6 @@ export const Header = () => {
       <nav>
         <div>
           <MapPin />
-          Belo Horizonte, MG
         </div>
         <CartButtonContainer name="Carrinho de compras">
           <ShoppingCart />
