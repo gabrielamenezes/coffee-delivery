@@ -8,9 +8,6 @@ export const Header = () => {
     <HeaderContainer>
       <img src={logoCoffeeDelivery} alt="Lodo do Coffee Delivery" />
       <nav>
-        <div>
-          <MapPin />
-        </div>
         <CartButtonContainer name="Carrinho de compras">
           <ShoppingCart />
         </CartButtonContainer>
