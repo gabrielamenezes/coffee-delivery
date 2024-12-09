@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem 0;
 
@@ -11,13 +11,20 @@ export const HeaderContainer = styled.header`
     gap: 0.75rem;
 
     div {
-      background: ${props => props.theme['purple-light']};
-
       display: flex;
+      justify-content: center;
+      align-items: center;
+
+      line-height: 1.3;
+      font-size: 0.875rem;
       gap: 0.25rem;
       padding: 0.5rem;
+
       color: ${props => props.theme['purple-dark']};
+      background: ${props => props.theme['purple-light']};
+      
       font-size: 0.875rem;
+      border-radius: 4px;
     }
   }
 `
