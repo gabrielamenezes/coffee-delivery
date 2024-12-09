@@ -11,5 +11,16 @@ export const GlobalStyle = createGlobalStyle`
   :focus {
     outline: 0;
   }
+
+  body {
+    background-color: ${props => props.theme['background']};
+    -webkit-font-smoothing: antialised;
+  }
+
+  body, input, textarea, button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.875;
+  }
   
 `
