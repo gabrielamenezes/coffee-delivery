@@ -2,7 +2,9 @@ import {
   Coffee,
   Package, ShoppingCartSimple, Timer,
 } from '@phosphor-icons/react'
-import { BannerContainer, HeroImageContainer, IconContainer, IconGridContainer } from './style'
+import {
+  BannerContainer, IconContainer, IconGridContainer,
+} from './style'
 import hero from '/images/hero.svg'
 
 export const Home = () => {
@@ -24,7 +26,6 @@ export const Home = () => {
           </div>
 
           <div>
-
             <IconContainer circleColor="gray">
               <Package weight="fill" />
             </IconContainer>
@@ -47,9 +48,9 @@ export const Home = () => {
         </IconGridContainer>
       </div>
 
-      <HeroImageContainer>
+      <div>
         <img src={hero} alt="" />
-      </HeroImageContainer>
+      </div>
     </BannerContainer>
   )
 }

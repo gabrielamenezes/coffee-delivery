@@ -3,8 +3,13 @@ import styled from 'styled-components'
 export const BannerContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: end;
+  justify-items: center;
   gap: 3rem;
+  background-image: url('/images/hero-bg.svg');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: bottom;
   h1 {
     font-size: 3rem;
     font-weight: bold;
@@ -26,12 +31,6 @@ export const BannerContainer = styled.div`
     max-width: 36.75rem;
 
   }
-`
-export const HeroImageContainer = styled.div`
-  background-image: url('/images/hero-bg.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
 `
 export const IconGridContainer = styled.div`
   display: flex;
