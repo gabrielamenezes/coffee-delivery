@@ -37,6 +37,7 @@ export const IconGridContainer = styled.div`
   flex-wrap: wrap;
   gap: 2.5rem;
   max-width: 36.75rem;
+  margin-bottom: 6.75rem;
 
 
   div {
@@ -74,3 +75,32 @@ export const IconContainer = styled(BaseIconContainer)<CircleProps>`
   background: ${props => props.theme[CIRCLE_COLORS[props.circleColor]]};
   
 `
+export const CoffeesContainer = styled.main`
+  max-width: 90rem;
+  padding-top: 2rem;
+  margin: 0 auto;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.3;
+    font-family: 'Baloo 2';
+    margin-bottom: 2.125rem;
+  }
+`
+// LISTA DE CAFÉS
+export const CoffeesCardsContainer = styled.div`
+
+`
+// CARD
+export const CoffeeCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${props => props.theme['baseCard']};
+  border-radius: 8px;
+
+  img {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+  `
