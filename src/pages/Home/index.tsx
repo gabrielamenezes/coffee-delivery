@@ -1,9 +1,16 @@
 import {
   Coffee,
-  Package, ShoppingCartSimple, Timer,
+  Package,
+  ShoppingCartSimple,
+  Timer,
 } from '@phosphor-icons/react'
 import {
-  BannerContainer, CoffeeCard, CoffeesCardsContainer, CoffeesContainer, IconContainer, IconGridContainer,
+  BannerContainer,
+  CoffeeCard,
+  CoffeesCardsContainer,
+  CoffeesContainer,
+  IconContainer,
+  IconGridContainer,
 } from './style'
 import hero from '/images/hero.svg'
 import expressoTradicional from '/images/coffees/expresso.png'

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const BannerContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: end;
+  align-items: center;
   justify-items: center;
   gap: 3rem;
   background-image: url('/images/hero-bg.svg');
@@ -33,9 +33,11 @@ export const BannerContainer = styled.div`
   }
 `
 export const IconGridContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2.5rem;
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
   max-width: 36.75rem;
   margin-bottom: 6.75rem;
 
