@@ -1,16 +1,22 @@
 import {
   Coffee,
+  Minus,
   Package,
-  ShoppingCartSimple,
+  Plus,
+  ShoppingCart,
   Timer,
 } from '@phosphor-icons/react'
 import {
   BannerContainer,
+  ButtonCartAction,
+  ButtonCartQuantityContainer,
   CoffeeCard,
   CoffeesCardsContainer,
   CoffeesContainer,
+  CoffeeTypeBadge,
   IconContainer,
   IconGridContainer,
+  ProductQuantitySelectorContainer,
 } from './style'
 import hero from '/images/hero.svg'
 import expressoTradicional from '/images/coffees/expresso.png'
@@ -28,7 +34,7 @@ export const Home = () => {
           <IconGridContainer>
             <div>
               <IconContainer circleColor="yellowDark">
-                <ShoppingCartSimple weight="fill" />
+                <ShoppingCart className="addToCartIcon" Simple weight="fill" />
               </IconContainer>
               Compra simpes e segura
             </div>
@@ -66,18 +72,124 @@ export const Home = () => {
         <CoffeesCardsContainer>
           <CoffeeCard>
             <img src={expressoTradicional} alt="" />
-            <span>Tradicional</span>
+            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
             <h3>Expresso Tradicional</h3>
             <p>O tradicional café feito com água quente e grãos moídos</p>
-            <div>
-              <span>R$ 4,00</span>
-              <div>
-                <button>-</button>
+            <ProductQuantitySelectorContainer>
+              <span className="coffeePrice">
+                <span>R$ </span>4,00
+              </span>
+              <ButtonCartQuantityContainer>
+                <button>
+                  <Minus />
+                </button>
                 <span>1</span>
-                <button>+</button>
-              </div>
-              <button>Comprar</button>
-            </div>
+                <button>
+                  <Plus />
+                </button>
+              </ButtonCartQuantityContainer>
+              <ButtonCartAction name="Adicionar ao carrinho">
+                <ShoppingCart className="addToCartIcon" weight="fill" />
+              </ButtonCartAction>
+            </ProductQuantitySelectorContainer>
+          </CoffeeCard>
+
+          <CoffeeCard>
+            <img src={expressoTradicional} alt="" />
+            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
+            <h3>Expresso Tradicional</h3>
+            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <ProductQuantitySelectorContainer>
+              <span className="coffeePrice">
+                <span>R$ </span>4,00
+              </span>
+              <ButtonCartQuantityContainer>
+                <button>
+                  <Minus />
+                </button>
+                <span>1</span>
+                <button>
+                  <Plus />
+                </button>
+              </ButtonCartQuantityContainer>
+
+              <ButtonCartAction name="Adicionar ao carrinho">
+                <ShoppingCart className="addToCartIcon" weight="fill" />
+              </ButtonCartAction>
+
+            </ProductQuantitySelectorContainer>
+          </CoffeeCard>
+
+          <CoffeeCard>
+            <img src={expressoTradicional} alt="" />
+            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
+            <h3>Expresso Tradicional</h3>
+            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <ProductQuantitySelectorContainer>
+              <span className="coffeePrice">
+                <span>R$ </span>4,00
+              </span>
+              <ButtonCartQuantityContainer>
+                <button>
+                  <Minus />
+                </button>
+                <span>1</span>
+                <button>
+                  <Plus />
+                </button>
+              </ButtonCartQuantityContainer>
+              <ButtonCartAction name="Adicionar ao carrinho">
+                <ShoppingCart className="addToCartIcon" weight="fill" />
+              </ButtonCartAction>
+            </ProductQuantitySelectorContainer>
+          </CoffeeCard>
+
+          <CoffeeCard>
+            <img src={expressoTradicional} alt="" />
+            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
+            <h3>Expresso Tradicional</h3>
+            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <ProductQuantitySelectorContainer>
+              <span className="coffeePrice">
+                <span>R$ </span>4,00
+              </span>
+              <ButtonCartQuantityContainer>
+                <button>
+                  <Minus />
+                </button>
+                <span>1</span>
+                <button>
+                  <Plus />
+                </button>
+              </ButtonCartQuantityContainer>
+              <ButtonCartAction name="Adicionar ao carrinho">
+                <ShoppingCart className="addToCartIcon" weight="fill" />
+              </ButtonCartAction>
+            </ProductQuantitySelectorContainer>
+          </CoffeeCard>
+
+          <CoffeeCard>
+            <img src={expressoTradicional} alt="" />
+            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
+            <h3>Expresso Tradicional</h3>
+            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <ProductQuantitySelectorContainer>
+              <span className="coffeePrice">
+                <span>R$ </span>4,00
+              </span>
+              <ButtonCartQuantityContainer>
+                <button>
+                  <Minus />
+                </button>
+                <span>1</span>
+                <button>
+                  <Plus />
+                </button>
+              </ButtonCartQuantityContainer>
+              <ButtonCartAction name="Adicionar ao carrinho">
+                <ShoppingCart className="addToCartIcon" weight="fill" />
+              </ButtonCartAction>
+            </ProductQuantitySelectorContainer>
           </CoffeeCard>
         </CoffeesCardsContainer>
       </CoffeesContainer>
