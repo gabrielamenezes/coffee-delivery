@@ -14,12 +14,17 @@ import {
   CoffeesCardsContainer,
   CoffeesContainer,
   CoffeeTypeBadge,
+  CoffeeTypeBadgeContainer,
   IconContainer,
   IconGridContainer,
   ProductQuantitySelectorContainer,
 } from './style'
 import hero from '/images/hero.svg'
 import expressoTradicional from '/images/coffees/expresso.png'
+import americano from '/images/coffees/americano.png'
+import expressoCremoso from '/images/coffees/expresso-cremoso.png'
+import expressoGelado from '/images/coffees/cafe-gelado.png'
+import cafeComLeite from '/images/coffees/cafe-com-leite.png'
 
 export const Home = () => {
   return (
@@ -34,7 +39,7 @@ export const Home = () => {
           <IconGridContainer>
             <div>
               <IconContainer circleColor="yellowDark">
-                <ShoppingCart className="addToCartIcon" Simple weight="fill" />
+                <ShoppingCart className="addToCartIcon" weight="fill" />
               </IconContainer>
               Compra simpes e segura
             </div>
@@ -72,7 +77,11 @@ export const Home = () => {
         <CoffeesCardsContainer>
           <CoffeeCard>
             <img src={expressoTradicional} alt="" />
-            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
+            <CoffeeTypeBadgeContainer>
+              <CoffeeTypeBadge>
+                Tradicional
+              </CoffeeTypeBadge>
+            </CoffeeTypeBadgeContainer>
             <h3>Expresso Tradicional</h3>
             <p>O tradicional café feito com água quente e grãos moídos</p>
             <ProductQuantitySelectorContainer>
@@ -95,13 +104,17 @@ export const Home = () => {
           </CoffeeCard>
 
           <CoffeeCard>
-            <img src={expressoTradicional} alt="" />
-            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
-            <h3>Expresso Tradicional</h3>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <img src={americano} alt="" />
+            <CoffeeTypeBadgeContainer>
+              <CoffeeTypeBadge>
+                Tradicional
+              </CoffeeTypeBadge>
+            </CoffeeTypeBadgeContainer>
+            <h3>Expresso Americano</h3>
+            <p>Expresso diluído, menos intenso que o tradicional</p>
             <ProductQuantitySelectorContainer>
               <span className="coffeePrice">
-                <span>R$ </span>4,00
+                <span>R$ </span>9,90
               </span>
               <ButtonCartQuantityContainer>
                 <button>
@@ -121,10 +134,45 @@ export const Home = () => {
           </CoffeeCard>
 
           <CoffeeCard>
-            <img src={expressoTradicional} alt="" />
-            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
-            <h3>Expresso Tradicional</h3>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <img src={expressoCremoso} alt="" />
+            <CoffeeTypeBadgeContainer>
+              <CoffeeTypeBadge>
+                Tradicional
+              </CoffeeTypeBadge>
+            </CoffeeTypeBadgeContainer>
+            <h3>Expresso Cremoso</h3>
+            <p>Café expresso tradicional com espuma cremosa</p>
+            <ProductQuantitySelectorContainer>
+              <span className="coffeePrice">
+                <span>R$ </span>9,90
+              </span>
+              <ButtonCartQuantityContainer>
+                <button>
+                  <Minus />
+                </button>
+                <span>1</span>
+                <button>
+                  <Plus />
+                </button>
+              </ButtonCartQuantityContainer>
+              <ButtonCartAction name="Adicionar ao carrinho">
+                <ShoppingCart className="addToCartIcon" weight="fill" />
+              </ButtonCartAction>
+            </ProductQuantitySelectorContainer>
+          </CoffeeCard>
+
+          <CoffeeCard>
+            <img src={expressoGelado} alt="" />
+            <CoffeeTypeBadgeContainer>
+              <CoffeeTypeBadge>
+                Tradicional
+              </CoffeeTypeBadge>
+              <CoffeeTypeBadge>
+                Gelado
+              </CoffeeTypeBadge>
+            </CoffeeTypeBadgeContainer>
+            <h3>Expresso Gelado</h3>
+            <p>Bebida preparada com café expresso e cubos de gelo</p>
             <ProductQuantitySelectorContainer>
               <span className="coffeePrice">
                 <span>R$ </span>4,00
@@ -145,37 +193,20 @@ export const Home = () => {
           </CoffeeCard>
 
           <CoffeeCard>
-            <img src={expressoTradicional} alt="" />
-            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
-            <h3>Expresso Tradicional</h3>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
+            <img src={cafeComLeite} alt="" />
+            <CoffeeTypeBadgeContainer>
+              <CoffeeTypeBadge>
+                Tradicional
+              </CoffeeTypeBadge>
+              <CoffeeTypeBadge>
+                Com Leite
+              </CoffeeTypeBadge>
+            </CoffeeTypeBadgeContainer>
+            <h3>Café com Leite</h3>
+            <p>Meio a meio de expresso tradicional com leite vaporizado</p>
             <ProductQuantitySelectorContainer>
               <span className="coffeePrice">
-                <span>R$ </span>4,00
-              </span>
-              <ButtonCartQuantityContainer>
-                <button>
-                  <Minus />
-                </button>
-                <span>1</span>
-                <button>
-                  <Plus />
-                </button>
-              </ButtonCartQuantityContainer>
-              <ButtonCartAction name="Adicionar ao carrinho">
-                <ShoppingCart className="addToCartIcon" weight="fill" />
-              </ButtonCartAction>
-            </ProductQuantitySelectorContainer>
-          </CoffeeCard>
-
-          <CoffeeCard>
-            <img src={expressoTradicional} alt="" />
-            <CoffeeTypeBadge>Tradicional</CoffeeTypeBadge>
-            <h3>Expresso Tradicional</h3>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
-            <ProductQuantitySelectorContainer>
-              <span className="coffeePrice">
-                <span>R$ </span>4,00
+                <span>R$ </span>9,00
               </span>
               <ButtonCartQuantityContainer>
                 <button>

@@ -95,6 +95,7 @@ export const CoffeesCardsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
+  grid-row-gap: 3rem;
 `
 // CARD
 export const CoffeeCard = styled.div`
@@ -191,7 +192,11 @@ export const ButtonCartQuantityContainer = styled.div`
     font-size: 1rem;
   }
 `
-
+export const CoffeeTypeBadgeContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+`
 export const CoffeeTypeBadge = styled.span`
   border-radius: 4px;
   color: ${props => props.theme['yellow-dark']};
