@@ -83,11 +83,16 @@ export const ButtonCartQuantityContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
   padding: 0.5rem;
   width: 100%;
   button {
     border: none;
     cursor: pointer;
+
+    &:hover {
+      background: none;
+    }
   }
   span {
     flex: 1;
