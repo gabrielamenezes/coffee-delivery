@@ -1,8 +1,6 @@
 import {
   Coffee,
-  Minus,
   Package,
-  Plus,
   ShoppingCart,
   Timer,
 } from '@phosphor-icons/react'
@@ -14,23 +12,12 @@ import {
   IconGridContainer,
 } from './style'
 import hero from '/images/hero.svg'
-// import americano from '/images/coffees/americano.png'
-// import expressoCremoso from '/images/coffees/expresso-cremoso.png'
-// import expressoGelado from '/images/coffees/cafe-gelado.png'
-// import cafeComLeite from '/images/coffees/cafe-com-leite.png'
-import { useState } from 'react'
-import { CoffeeCard } from '../../components/CoffeeCard'
+import { CoffeeCard } from './CoffeeCard'
+import { useContext } from 'react'
+import { CartContext } from '../../context/CartContext'
 
-interface CoffeeType {
-  id: string,
-  name: string,
-  price: number,
-  image: string,
-  quantity: number,
-  type: string[],
-}
 export const Home = () => {
-  const [coffee, setCoffee] = useState<CoffeeType[]>([])
+  const { coffees } = useContext(CartContext)
   return (
     <div>
       <BannerContainer>
@@ -79,9 +66,9 @@ export const Home = () => {
       <CoffeesContainer>
         <h2>Nossos cafés</h2>
         <CoffeesCardsContainer>
-          {coffee.map(item => {
+          {coffees.map(coffee => {
             return (
-              <CoffeeCard key={item.id} />
+              <CoffeeCard key={coffee.id} coffee={coffee} />
             )
           })}
         </CoffeesCardsContainer>
