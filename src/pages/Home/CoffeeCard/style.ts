@@ -40,6 +40,7 @@ export const ProductQuantitySelectorContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 0.5rem;
+  align-items: center;
   .coffeePrice {
     color: ${props => props.theme['base-text']};
     font-family: 'Baloo 2';
@@ -60,6 +61,7 @@ export const CallToActionBaseBtn = styled.button`
   border: none;
   border-radius: 8px;
   padding: 8px;
+  cursor: pointer;
 `
 
 export const ButtonCartAction = styled(CallToActionBaseBtn)`
@@ -85,6 +87,7 @@ export const ButtonCartQuantityContainer = styled.div`
   width: 100%;
   button {
     border: none;
+    cursor: pointer;
   }
   span {
     flex: 1;
