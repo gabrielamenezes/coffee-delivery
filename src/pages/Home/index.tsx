@@ -8,25 +8,29 @@ import {
 } from '@phosphor-icons/react'
 import {
   BannerContainer,
-  ButtonCartAction,
-  ButtonCartQuantityContainer,
-  CoffeeCard,
   CoffeesCardsContainer,
   CoffeesContainer,
-  CoffeeTypeBadge,
-  CoffeeTypeBadgeContainer,
   IconContainer,
   IconGridContainer,
-  ProductQuantitySelectorContainer,
 } from './style'
 import hero from '/images/hero.svg'
-import expressoTradicional from '/images/coffees/expresso.png'
-import americano from '/images/coffees/americano.png'
-import expressoCremoso from '/images/coffees/expresso-cremoso.png'
-import expressoGelado from '/images/coffees/cafe-gelado.png'
-import cafeComLeite from '/images/coffees/cafe-com-leite.png'
+// import americano from '/images/coffees/americano.png'
+// import expressoCremoso from '/images/coffees/expresso-cremoso.png'
+// import expressoGelado from '/images/coffees/cafe-gelado.png'
+// import cafeComLeite from '/images/coffees/cafe-com-leite.png'
+import { useState } from 'react'
+import { CoffeeCard } from '../../components/CoffeeCard'
 
+interface CoffeeType {
+  id: string,
+  name: string,
+  price: number,
+  image: string,
+  quantity: number,
+  type: string[],
+}
 export const Home = () => {
+  const [coffee, setCoffee] = useState<CoffeeType[]>([])
   return (
     <div>
       <BannerContainer>
@@ -75,153 +79,11 @@ export const Home = () => {
       <CoffeesContainer>
         <h2>Nossos cafés</h2>
         <CoffeesCardsContainer>
-          <CoffeeCard>
-            <img src={expressoTradicional} alt="" />
-            <CoffeeTypeBadgeContainer>
-              <CoffeeTypeBadge>
-                Tradicional
-              </CoffeeTypeBadge>
-            </CoffeeTypeBadgeContainer>
-            <h3>Expresso Tradicional</h3>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
-            <ProductQuantitySelectorContainer>
-              <span className="coffeePrice">
-                <span>R$ </span>4,00
-              </span>
-              <ButtonCartQuantityContainer>
-                <button>
-                  <Minus />
-                </button>
-                <span>1</span>
-                <button>
-                  <Plus />
-                </button>
-              </ButtonCartQuantityContainer>
-              <ButtonCartAction name="Adicionar ao carrinho">
-                <ShoppingCart className="addToCartIcon" weight="fill" />
-              </ButtonCartAction>
-            </ProductQuantitySelectorContainer>
-          </CoffeeCard>
-
-          <CoffeeCard>
-            <img src={americano} alt="" />
-            <CoffeeTypeBadgeContainer>
-              <CoffeeTypeBadge>
-                Tradicional
-              </CoffeeTypeBadge>
-            </CoffeeTypeBadgeContainer>
-            <h3>Expresso Americano</h3>
-            <p>Expresso diluído, menos intenso que o tradicional</p>
-            <ProductQuantitySelectorContainer>
-              <span className="coffeePrice">
-                <span>R$ </span>9,90
-              </span>
-              <ButtonCartQuantityContainer>
-                <button>
-                  <Minus />
-                </button>
-                <span>1</span>
-                <button>
-                  <Plus />
-                </button>
-              </ButtonCartQuantityContainer>
-
-              <ButtonCartAction name="Adicionar ao carrinho">
-                <ShoppingCart className="addToCartIcon" weight="fill" />
-              </ButtonCartAction>
-
-            </ProductQuantitySelectorContainer>
-          </CoffeeCard>
-
-          <CoffeeCard>
-            <img src={expressoCremoso} alt="" />
-            <CoffeeTypeBadgeContainer>
-              <CoffeeTypeBadge>
-                Tradicional
-              </CoffeeTypeBadge>
-            </CoffeeTypeBadgeContainer>
-            <h3>Expresso Cremoso</h3>
-            <p>Café expresso tradicional com espuma cremosa</p>
-            <ProductQuantitySelectorContainer>
-              <span className="coffeePrice">
-                <span>R$ </span>9,90
-              </span>
-              <ButtonCartQuantityContainer>
-                <button>
-                  <Minus />
-                </button>
-                <span>1</span>
-                <button>
-                  <Plus />
-                </button>
-              </ButtonCartQuantityContainer>
-              <ButtonCartAction name="Adicionar ao carrinho">
-                <ShoppingCart className="addToCartIcon" weight="fill" />
-              </ButtonCartAction>
-            </ProductQuantitySelectorContainer>
-          </CoffeeCard>
-
-          <CoffeeCard>
-            <img src={expressoGelado} alt="" />
-            <CoffeeTypeBadgeContainer>
-              <CoffeeTypeBadge>
-                Tradicional
-              </CoffeeTypeBadge>
-              <CoffeeTypeBadge>
-                Gelado
-              </CoffeeTypeBadge>
-            </CoffeeTypeBadgeContainer>
-            <h3>Expresso Gelado</h3>
-            <p>Bebida preparada com café expresso e cubos de gelo</p>
-            <ProductQuantitySelectorContainer>
-              <span className="coffeePrice">
-                <span>R$ </span>4,00
-              </span>
-              <ButtonCartQuantityContainer>
-                <button>
-                  <Minus />
-                </button>
-                <span>1</span>
-                <button>
-                  <Plus />
-                </button>
-              </ButtonCartQuantityContainer>
-              <ButtonCartAction name="Adicionar ao carrinho">
-                <ShoppingCart className="addToCartIcon" weight="fill" />
-              </ButtonCartAction>
-            </ProductQuantitySelectorContainer>
-          </CoffeeCard>
-
-          <CoffeeCard>
-            <img src={cafeComLeite} alt="" />
-            <CoffeeTypeBadgeContainer>
-              <CoffeeTypeBadge>
-                Tradicional
-              </CoffeeTypeBadge>
-              <CoffeeTypeBadge>
-                Com Leite
-              </CoffeeTypeBadge>
-            </CoffeeTypeBadgeContainer>
-            <h3>Café com Leite</h3>
-            <p>Meio a meio de expresso tradicional com leite vaporizado</p>
-            <ProductQuantitySelectorContainer>
-              <span className="coffeePrice">
-                <span>R$ </span>9,00
-              </span>
-              <ButtonCartQuantityContainer>
-                <button>
-                  <Minus />
-                </button>
-                <span>1</span>
-                <button>
-                  <Plus />
-                </button>
-              </ButtonCartQuantityContainer>
-              <ButtonCartAction name="Adicionar ao carrinho">
-                <ShoppingCart className="addToCartIcon" weight="fill" />
-              </ButtonCartAction>
-            </ProductQuantitySelectorContainer>
-          </CoffeeCard>
+          {coffee.map(item => {
+            return (
+              <CoffeeCard key={item.id} />
+            )
+          })}
         </CoffeesCardsContainer>
       </CoffeesContainer>
     </div>
