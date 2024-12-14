@@ -7,23 +7,25 @@ import {
   CoffeeTypeBadgeContainer,
   ProductQuantitySelectorContainer,
 } from './style'
+import { Coffees } from '../../../context/CartContext'
 
-import expressoTradicional from '/images/coffees/expresso.png'
-
-export const CoffeeCard = () => {
+interface CoffeeCardProps {
+  coffee: Coffees
+}
+export const CoffeeCard = ({ coffee } : CoffeeCardProps) => {
   return (
     <CoffeeCardComponent>
-      <img src={expressoTradicional} alt="" />
+      <img src={coffee.image} alt="" />
       <CoffeeTypeBadgeContainer>
-        <CoffeeTypeBadge>
-          Tradicional
-        </CoffeeTypeBadge>
+        {coffee.type.map((type) => {
+          return <CoffeeTypeBadge key={type}>{type}</CoffeeTypeBadge>
+        })}
       </CoffeeTypeBadgeContainer>
-      <h3>Expresso Tradicional</h3>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <h3>{coffee.name}</h3>
+      <p>{coffee.description}</p>
       <ProductQuantitySelectorContainer>
         <span className="coffeePrice">
-          <span>R$ </span>4,00
+          <span>R$ </span>{coffee.price}
         </span>
         <ButtonCartQuantityContainer>
           <button>
