@@ -89,6 +89,7 @@ export const ButtonCartQuantityContainer = styled.div`
   button {
     border: none;
     cursor: pointer;
+    background-color:${props => props.theme['base-button']};
 
     &:hover {
       background: none;
