@@ -140,7 +140,7 @@ export interface Coffees {
 }
 interface CartContextType {
   coffees: Coffees[],
-  addCoffeeToCart: (coffee: Coffees) => void,
+  addQuantity: (coffee: Coffees) => void,
   // removeCoffee: (id: string) => void,
   // updateCoffeeQuantity: (id: string, quantity: number) => void,
 }
@@ -151,14 +151,23 @@ interface CartContextProviderProps {
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [coffees, setCoffees] = useState<Coffees[]>(coffeesList)
 
-  function addCoffeeToCart() {
-    // Add coffee to cart logic
+  function addQuantity(coffee: Coffees) {
+    var selectedCoffee = coffees.find(item => item.id == coffee.id);
+    if (selectedCoffee) {
+      // Atualiza a quantidade do café existente
+      const updatedCoffees = coffees.map(item =>
+        item.id === coffee.id
+          ? { ...item, quantity: (item.quantity || 1) + 1 } // Incrementa a quantidade
+          : item
+      );
+      setCoffees(updatedCoffees);
   }
+}
 
   return (
     <CartContext.Provider value={{
       coffees,
-      addCoffeeToCart,
+      addQuantity,
       // removeCoffee,
       // updateCoffeeQuantity,
     }}
