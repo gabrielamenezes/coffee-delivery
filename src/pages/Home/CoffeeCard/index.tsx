@@ -7,12 +7,14 @@ import {
   CoffeeTypeBadgeContainer,
   ProductQuantitySelectorContainer,
 } from './style'
-import { Coffees } from '../../../context/CartContext'
+import { CartContext, Coffees } from '../../../context/CartContext'
+import { useContext } from 'react'
 
 interface CoffeeCardProps {
   coffee: Coffees
 }
 export const CoffeeCard = ({ coffee } : CoffeeCardProps) => {
+  const { addQuantity } = useContext(CartContext);
   return (
     <CoffeeCardComponent>
       <img src={coffee.image} alt="" />
@@ -31,8 +33,8 @@ export const CoffeeCard = ({ coffee } : CoffeeCardProps) => {
           <button>
             <Minus />
           </button>
-          <span>1</span>
-          <button>
+          <span>{coffee.quantity}</span>
+          <button onClick={() => addQuantity(coffee)}>
             <Plus />
           </button>
         </ButtonCartQuantityContainer>
