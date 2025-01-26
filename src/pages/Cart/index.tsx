@@ -24,7 +24,11 @@ export const Cart = () => {
           </ContainerTextAndIcon>
 
           <InputContainer>
-            <InputText placeholder="CEP" $gridInput="cep"></InputText>
+            <InputText
+              placeholder="CEP"
+              $gridInput="cep"
+              className="cep"
+            ></InputText>
             <InputText placeholder="Rua" $gridInput="rua"></InputText>
             <InputText placeholder="Número" $gridInput="numero"></InputText>
             <InputText

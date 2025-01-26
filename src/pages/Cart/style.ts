@@ -53,13 +53,13 @@ export const InputContainer = styled.div`
     "bairro cidade cidade uf";
 `;
 const inputGridPosition = {
-  cepInput: "cep",
-  ruaInput: "rua",
-  numeroInput: "numero",
-  complementoInput: "complemento",
-  bairroInput: "bairro",
-  cidadeInput: "cidade",
-  ufInput: "uf",
+  cep: "cep",
+  rua: "rua",
+  numero: "numero",
+  complemento: "complemento",
+  bairro: "bairro",
+  cidade: "cidade",
+  uf: "uf",
 };
 interface inputGridPositionProps {
   $gridInput: keyof typeof inputGridPosition;
@@ -83,5 +83,10 @@ export const BaseInput = styled.input`
 `;
 export const InputText = styled(BaseInput)<inputGridPositionProps>`
   grid-area: ${(props) => props.$gridInput};
+  ${(props) =>
+    props.$gridInput === "cep" &&
+    `
+      grid-column: span 1; /* O campo de CEP ocupará 1 coluna */
+  `}
 `;
 export const OrderSummary = styled.div``;
