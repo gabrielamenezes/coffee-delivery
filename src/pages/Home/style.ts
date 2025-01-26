@@ -70,11 +70,11 @@ const CIRCLE_COLORS = {
   purple: 'purple',
 }
 interface CircleProps {
-  circleColor: keyof typeof CIRCLE_COLORS;
+  $circleColor: keyof typeof CIRCLE_COLORS;
 }
 export const IconContainer = styled(BaseIconContainer)<CircleProps>`
   
-  background: ${props => props.theme[CIRCLE_COLORS[props.circleColor]]};
+  background: ${props => props.theme[CIRCLE_COLORS[props.$circleColor]]};
   
 `
 export const CoffeesContainer = styled.main`

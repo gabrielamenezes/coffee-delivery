@@ -29,28 +29,28 @@ export const Home = () => {
           </p>
           <IconGridContainer>
             <div>
-              <IconContainer circleColor="yellowDark">
+              <IconContainer $circleColor="yellowDark">
                 <ShoppingCart className="addToCartIcon" weight="fill" />
               </IconContainer>
               Compra simpes e segura
             </div>
 
             <div>
-              <IconContainer circleColor="gray">
+              <IconContainer $circleColor="gray">
                 <Package weight="fill" />
               </IconContainer>
               Embalagem mantém o café intacto
             </div>
 
             <div>
-              <IconContainer circleColor="yellow">
+              <IconContainer $circleColor="yellow">
                 <Timer weight="fill" />
               </IconContainer>
               Entrega rápida e rastreada
             </div>
 
             <div>
-              <IconContainer circleColor="purple">
+              <IconContainer $circleColor="purple">
                 <Coffee weight="fill" />
               </IconContainer>
               O café chega fresquinho até você
