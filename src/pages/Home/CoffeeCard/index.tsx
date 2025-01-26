@@ -14,7 +14,7 @@ interface CoffeeCardProps {
   coffee: Coffees
 }
 export const CoffeeCard = ({ coffee } : CoffeeCardProps) => {
-  const { addQuantity } = useContext(CartContext);
+  const { addQuantity, removeQuantity } = useContext(CartContext);
   return (
     <CoffeeCardComponent>
       <img src={coffee.image} alt="" />
@@ -30,7 +30,7 @@ export const CoffeeCard = ({ coffee } : CoffeeCardProps) => {
           <span>R$ </span>{coffee.price}
         </span>
         <ButtonCartQuantityContainer>
-          <button>
+          <button onClick={() => removeQuantity(coffee)}>
             <Minus />
           </button>
           <span>{coffee.quantity}</span>
