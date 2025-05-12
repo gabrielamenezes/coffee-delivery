@@ -1,193 +1,168 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useReducer, useState } from "react";
+import { cartReducer, CartState, Coffees } from "../reducers/cart/reducer";
 const coffeesList = [
   {
-    id: '1',
-    name: 'Americano',
+    id: "1",
+    name: "Americano",
     price: 5.5,
-    image: '/images/coffees/expresso.png',
+    image: "/images/coffees/expresso.png",
     quantity: 1,
-    description: 'O tradicional café feito com água quente e grãos moídos',
-    type: ['tradicional'],
+    description: "O tradicional café feito com água quente e grãos moídos",
+    type: ["tradicional"],
   },
   {
-    id: '2',
-    name: 'Expresso Americano',
+    id: "2",
+    name: "Expresso Americano",
     price: 4.0,
-    image: '/images/coffees/americano.png',
+    image: "/images/coffees/americano.png",
     quantity: 1,
-    description: 'Expresso diluído, menos intenso que o tradicional',
-    type: ['tradicional'],
+    description: "Expresso diluído, menos intenso que o tradicional",
+    type: ["tradicional"],
   },
   {
-    id: '3',
-    name: 'Expresso Cremoso',
+    id: "3",
+    name: "Expresso Cremoso",
     price: 6.0,
-    image: '/images/coffees/expresso-cremoso.png',
+    image: "/images/coffees/expresso-cremoso.png",
     quantity: 1,
-    description: 'Café expresso tradicional com espuma cremosa',
-    type: ['tradicional'],
+    description: "Café expresso tradicional com espuma cremosa",
+    type: ["tradicional"],
   },
   {
-    id: '4',
-    name: 'Expresso Gelado',
+    id: "4",
+    name: "Expresso Gelado",
     price: 4.0,
-    image: '/images/coffees/cafe-gelado.png',
+    image: "/images/coffees/cafe-gelado.png",
     quantity: 1,
-    description: 'Bebida preparada com café expresso e cubos de gelo',
-    type: ['tradicional'],
+    description: "Bebida preparada com café expresso e cubos de gelo",
+    type: ["tradicional"],
   },
   {
-    id: '5',
-    name: 'Café Com Leite',
+    id: "5",
+    name: "Café Com Leite",
     price: 5.0,
-    image: '/images/coffees/cafe-com-leite.png',
+    image: "/images/coffees/cafe-com-leite.png",
     quantity: 1,
-    description: 'Meio a meio de expresso tradicional com leite vaporizado',
-    type: ['tradicional', 'com leite'],
+    description: "Meio a meio de expresso tradicional com leite vaporizado",
+    type: ["tradicional", "com leite"],
   },
   {
-    id: '6',
-    name: 'Latte',
+    id: "6",
+    name: "Latte",
     price: 6.5,
-    image: '/images/coffees/latte.png',
+    image: "/images/coffees/latte.png",
     quantity: 1,
-    description: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
-    type: ['tradicional'],
+    description:
+      "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+    type: ["tradicional"],
   },
   {
-    id: '7',
-    name: 'Capuccino',
+    id: "7",
+    name: "Capuccino",
     price: 7.0,
-    image: '/images/coffees/capuccino.png',
+    image: "/images/coffees/capuccino.png",
     quantity: 1,
-    description: 'Bebida com canela feita de doses iguais de café, leite e espuma',
-    type: ['tradicional', 'com leite'],
+    description:
+      "Bebida com canela feita de doses iguais de café, leite e espuma",
+    type: ["tradicional", "com leite"],
   },
   {
-    id: '8',
-    name: 'Macchiatto',
+    id: "8",
+    name: "Macchiatto",
     price: 9.9,
-    image: '/images/coffees/macchiato.png',
+    image: "/images/coffees/macchiato.png",
     quantity: 1,
-    description: 'Café expresso misturado com um pouco de leite quente e espuma',
-    type: ['tradicional', 'com leite'],
+    description:
+      "Café expresso misturado com um pouco de leite quente e espuma",
+    type: ["tradicional", "com leite"],
   },
   {
-    id: '9',
-    name: 'Mocaccino',
+    id: "9",
+    name: "Mocaccino",
     price: 9.9,
-    image: '/images/coffees/mocacchino.png',
+    image: "/images/coffees/mocacchino.png",
     quantity: 1,
-    description: 'Café expresso com calda de chocolate, pouco leite e espuma',
-    type: ['tradicional', 'com leite'],
+    description: "Café expresso com calda de chocolate, pouco leite e espuma",
+    type: ["tradicional", "com leite"],
   },
   {
-    id: '10',
-    name: 'Chocolate Quente',
+    id: "10",
+    name: "Chocolate Quente",
     price: 9.9,
-    image: '/images/coffees/chocolate-quente.png',
+    image: "/images/coffees/chocolate-quente.png",
     quantity: 1,
-    description: 'Café expresso misturado com calda de chocolate, leite e açúcar',
-    type: ['especial', 'com leite'],
+    description:
+      "Café expresso misturado com calda de chocolate, leite e açúcar",
+    type: ["especial", "com leite"],
   },
   {
-    id: '11',
-    name: 'Cubano',
+    id: "11",
+    name: "Cubano",
     price: 10.9,
-    image: '/images/coffees/cubano.png',
+    image: "/images/coffees/cubano.png",
     quantity: 1,
-    description: 'Drink gelado de café expresso com rum, creme de leite e hortelã',
-    type: ['especial', 'alcoolico', 'gelado'],
+    description:
+      "Drink gelado de café expresso com rum, creme de leite e hortelã",
+    type: ["especial", "alcoolico", "gelado"],
   },
   {
-    id: '12',
-    name: 'Havaiano',
+    id: "12",
+    name: "Havaiano",
     price: 10.9,
-    image: '/images/coffees/havaiano.png',
+    image: "/images/coffees/havaiano.png",
     quantity: 1,
-    description: 'Bebida adocicada preparada com café e leite de coco',
-    type: ['especial'],
+    description: "Bebida adocicada preparada com café e leite de coco",
+    type: ["especial"],
   },
 
   {
-    id: '13',
-    name: 'Arabe',
+    id: "13",
+    name: "Arabe",
     price: 10.9,
-    image: '/images/coffees/arabe.png',
+    image: "/images/coffees/arabe.png",
     quantity: 1,
-    description: 'Bebida preparada com grãos de café árabe e especiarias',
-    type: ['especial'],
+    description: "Bebida preparada com grãos de café árabe e especiarias",
+    type: ["especial"],
   },
   {
-    id: '14',
-    name: 'Irlandês',
+    id: "14",
+    name: "Irlandês",
     price: 14.5,
-    image: '/images/coffees/irlandes.png',
+    image: "/images/coffees/irlandes.png",
     quantity: 1,
-    description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
-    type: ['especial', 'alcoolico'],
+    description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
+    type: ["especial", "alcoolico"],
   },
-
-]
-export interface Coffees {
-  id: string,
-  name: string,
-  price: number,
-  image: string,
-  quantity: number,
-  description: string,
-  type: string[],
-}
+];
 interface CartContextType {
-  coffees: Coffees[],
-  addQuantity: (coffee: Coffees) => void,
-  removeQuantity: (coffee: Coffees) => void,
-  // removeCoffee: (id: string) => void,
-  // updateCoffeeQuantity: (id: string, quantity: number) => void,
+  coffees: Coffees[];
 }
-export const CartContext = createContext({} as CartContextType)
+export const CartContext = createContext({} as CartContextType);
 interface CartContextProviderProps {
-  children: ReactNode,
+  children: ReactNode;
 }
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [coffees, setCoffees] = useState<Coffees[]>(coffeesList)
-
-  function addQuantity(coffee: Coffees) {
-    var selectedCoffee = coffees.find(item => item.id == coffee.id);
-    if (selectedCoffee) {
-      // Atualiza a quantidade do café existente
-      const updatedCoffees = coffees.map(item =>
-        item.id === coffee.id
-          ? { ...item, quantity: item.quantity !== undefined ? item.quantity + 1 : 1 } // Incrementa a quantidade
-          : item
-      );
-      setCoffees(updatedCoffees);
+  // estado para representar os cafés da home (página inicial)
+  const [coffees, setCoffees] = useState<Coffees[]>(coffeesList);
+  // O primeiro parâmetro do useReducer é uma função. Essa função sempre recebe 2 argumentos:
+  // O primeiro argumento é o state que é o valor atual (em tempo real) e uma action
+  // Action é qual ação o usuário está querendo utilizar dentro do reducer
+  const [cart, dispatch] = useReducer<any, any>(
+    cartReducer,
+    {
+      cart: [],
+      totalPrice: 0,
+      totalItems: 0,
+    },
+    (initialState) => {
+      const cart = localStorage.getItem("@coffee-delivery:cart-1.0.0");
+      if (cart) {
+        return JSON.parse(cart);
+      }
+      return initialState;
     }
-  }
-
-  function removeQuantity(coffee: Coffees) {
-    var selectedCoffee = coffees.find(item => item.id == coffee.id);
-    if (selectedCoffee) {
-      // Atualiza a quantidade do café existente
-      const updatedCoffees = coffees.map(item =>
-        item.id === coffee.id
-          ? { ...item, quantity: item.quantity !== undefined ? item.quantity - 1 : 1 } // Decrementa a quantidade
-          : item
-      );
-      setCoffees(updatedCoffees);
-    }
-  } 
-
+  );
   return (
-    <CartContext.Provider value={{
-      coffees,
-      addQuantity,
-      removeQuantity,
-      // removeCoffee,
-      // updateCoffeeQuantity,
-    }}
-    >
-      {children}
-    </CartContext.Provider>
-  )
+    <CartContext.Provider value={{ coffees }}>{children}</CartContext.Provider>
+  );
 }
